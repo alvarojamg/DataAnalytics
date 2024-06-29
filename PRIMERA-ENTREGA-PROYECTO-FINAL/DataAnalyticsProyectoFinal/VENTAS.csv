@@ -1,4 +1,4 @@
-Retailer_Id;Invoice_Date;Id_Region;State;Id_City;Product;Id_Family;Id_Gender;Id_Category;Id_Product_Method;Id_Primary Color;IdPrice per_Unit;Units Sold;Operating Margin;Id_Sales_Method
+IdVendedor;FechaVenta;IdRegion;IdEstado;IdCiudad;Producto;IdFamilia;IdGenero;IdCategoria;IdTipoProducto;IdColor;PrecioUnitario;UnidadesVendidas;PorcentajeRentabilidad;IdTipoVenta
 1185732;17/8/2021;1;42;32;Men's Accesories;1;1;4;1;5;38;87;0.52;3
 1185732;17/8/2021;1;42;32;Men's Accesories;1;1;4;1;5;36;72;0.51;3
 1185732;17/8/2021;1;42;32;Men's Accesories;1;1;4;1;5;54;115;0.54;3
