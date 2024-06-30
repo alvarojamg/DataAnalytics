@@ -1,4 +1,4 @@
-IdTipoVenta/TipoVenta
-1;In-store
-2;Outlet
-3;Online
+IdTipoVenta,TipoVenta
+1,In-store
+2,Outlet
+3,Online
