@@ -38,7 +38,7 @@ dataFrame['Range_hours'] = pd.cut(
     dataFrame['Hours_Studied'],
     bins=[0, 5, 9, 13,18,22,26, float('inf')],  # Límites de los rangos
     labels=['1-5 horas', '5-9 horas', '9-13 horas', '13-18 horas' ,'18-22 horas','22-26 horas' , 'Más de 26 horas'],  # Etiquetas
-    right=False  # Incluye el límite inferior en el rango
+    right=False
 )
 
 count_range = dataFrame['Range_hours'].value_counts().sort_index()
@@ -50,7 +50,7 @@ plt.xticks(rotation=0)
 plt.tight_layout()
 plt.show()
 
-
+#----------------------------------------------
 dataFrame['Range_scores'] = pd.cut(
     dataFrame["Exam_Score"],
     bins = [0,50, 60, 65, 70, 80, float('inf')],
@@ -66,13 +66,12 @@ plt.ylabel('Número de Estudiantes')
 plt.xticks(rotation=0)
 plt.tight_layout()
 plt.show()
-
+#--------------------------------------------------
 scores_por_rango = dataFrame.groupby('Range_hours')['Exam_Score'].mean()
 
-# Graficar
+
 scores_por_rango.plot(kind='bar', color='orange', figsize=(10, 6))
 
-# Configuración del gráfico
 plt.title('Promedio de Score por Rango de Horas Estudiadas en una semana')
 plt.xlabel('Rango de Horas Estudiadas')
 plt.ylabel('Score Promedio')
@@ -80,7 +79,7 @@ plt.xticks(rotation=0)
 plt.tight_layout()
 plt.show()
 
-#----
+#-------------------------------------------------
 
 dataFrame['Range_attendance'] = pd.cut(
     dataFrame["Attendance"],
@@ -96,34 +95,13 @@ plt.ylabel('Score Promedio')
 plt.xticks(rotation=0)
 plt.tight_layout()
 plt.show()
-
-#---Grafica pendiente
-# promedios = dataFrame.groupby("Distance_from_Home")["Attendance"].mean()
-#
-# # Crear gráfico de líneas
-# plt.figure(figsize=(8, 6))
-# promedios.plot(kind='line', color='#66c2a5', marker='o', linewidth=2)  # Cambié el color y agregué marcadores
-#
-# # Configuración del gráfico
-# plt.title('Promedio de Asistencias por Distancia')
-# plt.xlabel('Distancia')
-# plt.ylabel('Porcentaje de Asistencias')
-# plt.xticks(rotation=0)  # Asegurarte de que las etiquetas del eje X no se roten
-# plt.ylim(50, 100)  # Ajustar el rango del eje Y
-# plt.tight_layout()
-#
-# # Mostrar el gráfico
-# plt.show()
-
+#-----------------------------------------------
 plt.figure(figsize=(8, 6))
 sns.boxplot(x="Distance_from_Home", y="Attendance", data=dataFrame, palette="Set2")
 
-# Configuración del gráfico
 plt.title('Dispersión de Asistencias por Distancia')
 plt.xlabel('Distancia')
 plt.ylabel('Porcentaje de Asistencias')
 plt.ylim(50, 100)
 plt.tight_layout()
-
-# Mostrar el gráfico
 plt.show()
