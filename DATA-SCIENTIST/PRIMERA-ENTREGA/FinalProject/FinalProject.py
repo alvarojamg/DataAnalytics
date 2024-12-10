@@ -5,7 +5,51 @@ import seaborn as sns
 from altair.vega import legend
 from scipy.ndimage import label
 
+#-------------------------------------
+import numpy as np
+from numpy import mean
+from numpy import std
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pingouin as pg
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import math
+import os
+import missingno as msno
+import graphviz
+
+from sklearn.decomposition import PCA
+from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import LeaveOneOut
+from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import StandardScaler
+from sklearn.tree import plot_tree
+from sklearn.tree import export_graphviz
+from sklearn.metrics import classification_report
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn import datasets, neighbors
+from mlxtend.plotting import plot_decision_regions
+from sklearn import datasets
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn import tree
+from IPython.display import display, Image
+
+#-------------------------------------
+from helper.DataCleaner import DataCleaner
+
 dataFrame = pd.read_csv("DataSet/StudentPerformanceFactors.csv")
+
+DataCleaner.replaceNullWithMedian(dataFrame)
 
 dataFrame["Id_student"] = range(1,len(dataFrame) + 1)
 print(dataFrame)
